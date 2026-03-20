@@ -260,6 +260,82 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── PHOTO HERO BACKGROUND ── */
+.hero-photo-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-photo-bg img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(0.18) saturate(0.6);transform:scale(1.05);animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1.12)}}
+
+/* ── TYPE IMAGE BANNER ── */
+.type-img-banner{position:relative;width:100%;height:240px;overflow:hidden;margin-bottom:52px;border:1px solid var(--border)}
+.type-img-banner img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.8s ease;filter:brightness(0.55) saturate(0.7)}
+.type-img-banner:hover img{transform:scale(1.04)}
+.type-img-banner-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:28px 36px;background:linear-gradient(to top,rgba(28,22,16,0.85) 0%,transparent 60%)}
+.type-img-banner-text{font-family:'Libre Baskerville',serif;font-size:clamp(15px,2.5vw,20px);font-style:italic;color:rgba(250,248,244,0.9);line-height:1.5;max-width:640px}
+
+/* ── ORIGINS VISUAL ── */
+.origins-band{position:relative;z-index:1;overflow:hidden;height:420px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.origins-band img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(0.25) saturate(0.5)}
+.origins-band-content{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;max-width:1100px;margin:0 auto;padding:0 52px;gap:60px}
+@media(max-width:768px){.origins-band-content{grid-template-columns:1fr;padding:0 20px;align-items:flex-start;padding-top:40px}}
+.origins-quote{font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,40px);font-style:italic;color:var(--ink);line-height:1.25;opacity:0.92}
+.origins-quote span{color:var(--gold)}
+.origins-caption{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-top:18px}
+.origins-right{display:flex;flex-direction:column;gap:20px}
+.origins-pill{background:rgba(250,248,244,0.07);border:1px solid rgba(250,248,244,0.12);padding:16px 22px;backdrop-filter:blur(10px)}
+.origins-pill-title{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.origins-pill-body{font-size:13px;color:rgba(250,248,244,0.7);line-height:1.7}
+
+/* ── MOON PHASE STRIP ── */
+.moon-strip{position:relative;z-index:1;background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 52px;overflow:hidden}
+.moon-strip-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center}
+@media(max-width:768px){.moon-strip-inner{grid-template-columns:1fr;gap:32px};.moon-strip{padding:48px 20px}}
+.moon-img-wrap{position:relative;width:200px;height:200px;flex-shrink:0}
+.moon-img-wrap img{width:100%;height:100%;object-fit:cover;border-radius:50%;filter:brightness(0.85) saturate(0.6);animation:moonGlow 5s ease-in-out infinite}
+@keyframes moonGlow{0%,100%{box-shadow:0 0 30px rgba(154,111,46,0.2),0 0 80px rgba(154,111,46,0.07)}50%{box-shadow:0 0 50px rgba(154,111,46,0.35),0 0 120px rgba(154,111,46,0.13)}}
+.moon-text-content{}
+
+/* ── FLOATING PARTICLES ── */
+.floating-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.fp{position:absolute;border-radius:50%;animation:floatUp linear infinite;opacity:0}
+@keyframes floatUp{0%{transform:translateY(0) scale(0);opacity:0}10%{opacity:1}90%{opacity:0.6}100%{transform:translateY(-120vh) scale(1.5);opacity:0}}
+
+/* ── BODYGRAPH IMAGE SIDE ── */
+.bg-visual-section{position:relative;z-index:1;overflow:hidden}
+.bg-img-half{display:grid;grid-template-columns:1fr 1fr;min-height:440px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+@media(max-width:768px){.bg-img-half{grid-template-columns:1fr}}
+.bg-img-half .img-side{overflow:hidden}
+.bg-img-half .img-side img{width:100%;height:100%;object-fit:cover;filter:brightness(0.45) saturate(0.55);transition:filter 0.6s ease}
+.bg-img-half .img-side:hover img{filter:brightness(0.55) saturate(0.7)}
+.bg-img-half .text-side{padding:64px 52px;display:flex;flex-direction:column;justify-content:center;background:var(--paper)}
+@media(max-width:768px){.bg-img-half .text-side{padding:48px 20px}}
+
+/* ── ANIMATED MANDALA ── */
+@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes rotateSlowR{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.mandala-wrap{display:flex;justify-content:center;align-items:center;padding:40px;position:relative}
+.mandala-ring-anim{animation:rotateSlow 40s linear infinite;transform-origin:center}
+.mandala-ring-anim-r{animation:rotateSlowR 25s linear infinite;transform-origin:center}
+
+/* ── PHOTO GRID ROW ── */
+.photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:0}
+@media(max-width:600px){.photo-row{grid-template-columns:1fr}}
+.photo-cell{overflow:hidden;height:260px;position:relative}
+.photo-cell img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease,filter 0.5s ease;filter:brightness(0.55) saturate(0.6)}
+.photo-cell:hover img{transform:scale(1.06);filter:brightness(0.65) saturate(0.75)}
+.photo-cell-cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 22px;background:linear-gradient(to top,rgba(28,22,16,0.8) 0%,transparent 55%)}
+.photo-cell-cap-title{font-size:10px;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.photo-cell-cap-body{font-size:13px;color:rgba(250,248,244,0.85);font-family:'Libre Baskerville',serif;font-style:italic;line-height:1.45}
+
+/* ── GIF LIKE CSS ANIMATIONS ── */
+@keyframes starTwinkle{0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes auricPulse{0%,100%{opacity:0;transform:scale(0.7)}40%{opacity:0.5}100%{opacity:0;transform:scale(1.8)}}
+.aura-animation{position:relative;display:flex;align-items:center;justify-content:center;width:160px;height:160px;flex-shrink:0}
+.aura-ring-a{position:absolute;width:100%;height:100%;border-radius:50%;border:1px solid;animation:auricPulse 3s ease-out infinite}
+.aura-ring-b{position:absolute;width:75%;height:75%;border-radius:50%;border:1px solid;animation:auricPulse 3s 1s ease-out infinite}
+.aura-ring-c{position:absolute;width:50%;height:50%;border-radius:50%;border:1px solid;animation:auricPulse 3s 2s ease-out infinite}
+.aura-core{position:absolute;width:22px;height:22px;border-radius:50%;animation:moonGlow 3s ease-in-out infinite}
+
 </style>
 </head>
 <body>
@@ -282,6 +358,12 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
 
 <!-- HERO -->
 <section class="hero">
+  <!-- Cosmic background photo -->
+  <div class="hero-photo-bg">
+    <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&w=1800&q=80" alt="cosmic nebula" loading="eager">
+  </div>
+  <!-- Floating golden particles -->
+  <div class="floating-particles" id="floatingParticles"></div>
   <div class="hero-glow"></div>
   <div class="hero-ring"></div>
   <div class="hero-ring"></div>
@@ -312,6 +394,54 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
       <p class="intro-body">Your Human Design chart (Bodygraph) is calculated using your birth date, time, and place. It shows how your energy moves, how you make decisions, and what patterns keep you stuck or aligned. It is not about becoming something — it's about recognizing what you already are.</p>
     </div>
     <div>
+      <!-- Animated aura rings -->
+      <div class="mandala-wrap" style="margin-bottom:32px">
+        <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer rotating ring of dots -->
+          <g class="mandala-ring-anim" style="transform-box:fill-box">
+            <circle cx="110" cy="18" r="2.5" fill="rgba(154,111,46,0.5)"/>
+            <circle cx="159" cy="32" r="2" fill="rgba(154,111,46,0.4)"/>
+            <circle cx="192" cy="68" r="2.5" fill="rgba(154,111,46,0.5)"/>
+            <circle cx="202" cy="110" r="2" fill="rgba(154,111,46,0.3)"/>
+            <circle cx="192" cy="152" r="2.5" fill="rgba(154,111,46,0.5)"/>
+            <circle cx="159" cy="188" r="2" fill="rgba(154,111,46,0.4)"/>
+            <circle cx="110" cy="202" r="2.5" fill="rgba(154,111,46,0.5)"/>
+            <circle cx="61" cy="188" r="2" fill="rgba(154,111,46,0.3)"/>
+            <circle cx="28" cy="152" r="2.5" fill="rgba(154,111,46,0.5)"/>
+            <circle cx="18" cy="110" r="2" fill="rgba(154,111,46,0.4)"/>
+            <circle cx="28" cy="68" r="2.5" fill="rgba(154,111,46,0.5)"/>
+            <circle cx="61" cy="32" r="2" fill="rgba(154,111,46,0.3)"/>
+          </g>
+          <!-- Middle counter-rotating ring -->
+          <g class="mandala-ring-anim-r" style="transform-box:fill-box">
+            <circle cx="110" cy="44" r="1.8" fill="rgba(154,111,46,0.35)"/>
+            <circle cx="145" cy="57" r="1.5" fill="rgba(154,111,46,0.3)"/>
+            <circle cx="166" cy="86" r="1.8" fill="rgba(154,111,46,0.35)"/>
+            <circle cx="166" cy="134" r="1.5" fill="rgba(154,111,46,0.3)"/>
+            <circle cx="145" cy="163" r="1.8" fill="rgba(154,111,46,0.35)"/>
+            <circle cx="110" cy="176" r="1.5" fill="rgba(154,111,46,0.3)"/>
+            <circle cx="75" cy="163" r="1.8" fill="rgba(154,111,46,0.35)"/>
+            <circle cx="54" cy="134" r="1.5" fill="rgba(154,111,46,0.3)"/>
+            <circle cx="54" cy="86" r="1.8" fill="rgba(154,111,46,0.35)"/>
+            <circle cx="75" cy="57" r="1.5" fill="rgba(154,111,46,0.3)"/>
+          </g>
+          <!-- Static concentric circles -->
+          <circle cx="110" cy="110" r="88" fill="none" stroke="rgba(154,111,46,0.1)" stroke-width="1"/>
+          <circle cx="110" cy="110" r="64" fill="none" stroke="rgba(154,111,46,0.15)" stroke-width="1"/>
+          <circle cx="110" cy="110" r="42" fill="none" stroke="rgba(154,111,46,0.2)" stroke-width="1"/>
+          <!-- Center bodygraph-like shape -->
+          <polygon points="110,72 136,88 136,120 110,136 84,120 84,88" fill="rgba(154,111,46,0.06)" stroke="rgba(154,111,46,0.25)" stroke-width="1"/>
+          <circle cx="110" cy="110" r="12" fill="rgba(154,111,46,0.15)" stroke="rgba(154,111,46,0.4)" stroke-width="1.5"/>
+          <circle cx="110" cy="110" r="5" fill="rgba(154,111,46,0.5)"/>
+          <!-- Connecting lines -->
+          <line x1="110" y1="72" x2="110" y2="44" stroke="rgba(154,111,46,0.12)" stroke-width="1"/>
+          <line x1="136" y1="88" x2="154" y2="68" stroke="rgba(154,111,46,0.12)" stroke-width="1"/>
+          <line x1="136" y1="120" x2="154" y2="140" stroke="rgba(154,111,46,0.12)" stroke-width="1"/>
+          <line x1="110" y1="136" x2="110" y2="164" stroke="rgba(154,111,46,0.12)" stroke-width="1"/>
+          <line x1="84" y1="120" x2="66" y2="140" stroke="rgba(154,111,46,0.12)" stroke-width="1"/>
+          <line x1="84" y1="88" x2="66" y2="68" stroke="rgba(154,111,46,0.12)" stroke-width="1"/>
+        </svg>
+      </div>
       <div class="intro-stats">
         <div class="intro-stat reveal">
           <div class="intro-stat-num">64</div>
@@ -334,6 +464,56 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
           <div class="intro-stat-desc">Your "costume" — the archetypal way you express your design in the world</div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ORIGINS VISUAL BAND ── -->
+<div class="origins-band">
+  <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?auto=format&fit=crop&w=1800&q=80" alt="deep space nebula" loading="lazy">
+  <div class="origins-band-content">
+    <div>
+      <p class="origins-quote">"In January 1987, <span>Ra Uru Hu</span> heard a Voice speak for eight days straight — and Human Design was born."</p>
+      <p class="origins-caption">The Origin — Ibiza, Spain · 1987</p>
+    </div>
+    <div class="origins-right">
+      <div class="origins-pill">
+        <div class="origins-pill-title">🔯 I Ching</div>
+        <div class="origins-pill-body">The 64 hexagrams map to the 64 gates of the Bodygraph — and the 64 codons of human DNA.</div>
+      </div>
+      <div class="origins-pill">
+        <div class="origins-pill-title">♈ Astrology</div>
+        <div class="origins-pill-body">Your birth chart planets define which gates are activated in your design at birth.</div>
+      </div>
+      <div class="origins-pill">
+        <div class="origins-pill-title">🌀 Kabbalah</div>
+        <div class="origins-pill-body">The Tree of Life provides the framework for the nine centers of the Bodygraph.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PHOTO ROW: WISDOM SYSTEMS ── -->
+<div class="photo-row reveal">
+  <div class="photo-cell">
+    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80" alt="ancient books wisdom" loading="lazy">
+    <div class="photo-cell-cap">
+      <div class="photo-cell-cap-title">The I Ching</div>
+      <div class="photo-cell-cap-body">3,000 years of hexagram wisdom encoded in your design</div>
+    </div>
+  </div>
+  <div class="photo-cell">
+    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=600&q=80" alt="milky way galaxy" loading="lazy">
+    <div class="photo-cell-cap">
+      <div class="photo-cell-cap-title">Astrology</div>
+      <div class="photo-cell-cap-body">Your birth moment captured in the precise position of 10 celestial bodies</div>
+    </div>
+  </div>
+  <div class="photo-cell">
+    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="mountain meditation zen" loading="lazy">
+    <div class="photo-cell-cap">
+      <div class="photo-cell-cap-title">Chakras & Kabbalah</div>
+      <div class="photo-cell-cap-body">Nine energy centers — each defined or open — shaping how you process life</div>
     </div>
   </div>
 </div>
@@ -361,6 +541,14 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
 <!-- ═══════════════ PROJECTOR ═══════════════ -->
 <div class="panel show" id="panel-projector">
 <div class="panel-inner">
+
+  <!-- Projector image banner -->
+  <div class="type-img-banner">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80" alt="observation perspective" loading="lazy">
+    <div class="type-img-banner-overlay">
+      <div class="type-img-banner-text" style="color:rgba(200,195,255,0.9)">"The one who sees from above — precise, penetrating, and perfectly placed to guide."</div>
+    </div>
+  </div>
 
   <div class="type-hero">
     <div>
@@ -599,6 +787,14 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
 <div class="panel" id="panel-manifestor">
 <div class="panel-inner">
 
+  <!-- Manifestor image banner -->
+  <div class="type-img-banner">
+    <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&w=1400&q=80" alt="lightning power energy" loading="lazy">
+    <div class="type-img-banner-overlay">
+      <div class="type-img-banner-text" style="color:rgba(255,200,200,0.9)">"Born to initiate, to disrupt, to move first — the Manifestor shapes the world before the world is ready."</div>
+    </div>
+  </div>
+
   <div class="type-hero">
     <div>
       <div class="type-kicker">
@@ -829,6 +1025,14 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
 <div class="panel" id="panel-reflector">
 <div class="panel-inner">
 
+  <!-- Reflector image banner -->
+  <div class="type-img-banner">
+    <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1400&q=80" alt="full moon reflection in water" loading="lazy">
+    <div class="type-img-banner-overlay">
+      <div class="type-img-banner-text" style="color:rgba(180,230,245,0.92)">"Rare, lunar, luminous — the Reflector mirrors back the soul of every community they touch."</div>
+    </div>
+  </div>
+
   <div class="type-hero">
     <div>
       <div class="type-kicker">
@@ -1035,6 +1239,14 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
 <!-- ═══════════════ GENERATOR ═══════════════ -->
 <div class="panel" id="panel-generator">
 <div class="panel-inner">
+
+  <!-- Generator image banner -->
+  <div class="type-img-banner">
+    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80" alt="sunrise mountains energy nature" loading="lazy">
+    <div class="type-img-banner-overlay">
+      <div class="type-img-banner-text" style="color:rgba(180,255,210,0.9)">"The life-force of the world — when a Generator loves what they do, they become unstoppable."</div>
+    </div>
+  </div>
 
   <div class="type-hero">
     <div>
@@ -1265,6 +1477,14 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
 <div class="panel" id="panel-mangen">
 <div class="panel-inner">
 
+  <!-- Manifesting Generator image banner -->
+  <div class="type-img-banner">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80" alt="electric circuit energy speed" loading="lazy">
+    <div class="type-img-banner-overlay">
+      <div class="type-img-banner-text" style="color:rgba(255,225,180,0.92)">"Fast, multi-passionate, and magnetic — the MG burns bright across many paths at once."</div>
+    </div>
+  </div>
+
   <div class="type-hero">
     <div>
       <div class="type-kicker">
@@ -1492,6 +1712,20 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
 
 <div class="rule"></div>
 
+<!-- ── MOON PHASE STRIP ── -->
+<div class="moon-strip">
+  <div class="moon-strip-inner">
+    <div class="moon-img-wrap">
+      <img src="https://images.unsplash.com/photo-1532693322450-2cb5c511067d?auto=format&fit=crop&w=400&q=80" alt="full moon" loading="lazy">
+    </div>
+    <div class="moon-text-content">
+      <p class="overline">The Lunar Cycle & Reflectors</p>
+      <h2 class="h2" style="margin-bottom:16px">Aligned with the Moon</h2>
+      <p class="lead">The Moon transits all 64 gates of the Bodygraph in approximately 28.5 days. For Reflectors — the only type entirely open to the lunar field — this cycle is the heartbeat of their decision-making. But the Moon shapes all of us: it activates gates, colours channels, and shifts the collective energy field daily. Learning your lunar rhythm deepens every Human Design practice.</p>
+    </div>
+  </div>
+</div>
+
 <!-- AUTHORITY SECTION -->
 <div id="authority" class="band">
   <div class="band-inner">
@@ -1692,6 +1926,32 @@ footer{position:relative;z-index:1;padding:72px 52px;text-align:center;border-to
       <div class="circuit-theme">Theme: Sharing, Experience, Knowledge</div>
       <p class="circuit-body">The Collective Circuit is about the sharing of experience and the accumulation of knowledge across generations. It splits into two sub-circuits: the Logic stream (pattern recognition, extrapolation, building on proven patterns) and the Sensing stream (experiential knowledge, storytelling, sharing what has been lived). People with active Collective channels are compelled to share — to teach, write, create, speak — to transmit what they have learned or experienced. The audience is essential to the Collective type: they need others to share with for their energy to complete itself.</p>
     </div>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- ── SPLIT IMAGE BAND: NOT-SELF vs ALIGNED ── -->
+<div class="bg-img-half">
+  <div class="img-side">
+    <img src="https://images.unsplash.com/photo-1476611550911-b99591f4f5dc?auto=format&fit=crop&w=900&q=80" alt="storm dark clouds" loading="lazy">
+  </div>
+  <div class="text-side">
+    <p class="overline" style="color:#c63f3f">The Not-Self</p>
+    <h2 class="h2" style="margin-bottom:20px">When you live against your design</h2>
+    <p class="lead" style="margin-bottom:20px">Each type carries a signature not-self emotion — a reliable signal that you are living out of alignment with your true nature. <strong>Anger</strong> for Manifestors. <strong>Frustration</strong> for Generators. <strong>Bitterness</strong> for Projectors. <strong>Disappointment</strong> for Manifesting Generators. <strong>Disillusionment</strong> for Reflectors.</p>
+    <p style="font-size:14px;line-height:1.85;color:var(--muted)">These emotions are not problems to solve — they are messengers. When they arise, they signal not that something is wrong with you, but that something is wrong with your strategy.</p>
+  </div>
+</div>
+<div class="bg-img-half" style="direction:rtl">
+  <div class="img-side" style="direction:ltr">
+    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80" alt="sunrise golden light path" loading="lazy">
+  </div>
+  <div class="text-side" style="direction:ltr">
+    <p class="overline" style="color:#1e9455">The Signature Theme</p>
+    <h2 class="h2" style="margin-bottom:20px">When you live as yourself</h2>
+    <p class="lead" style="margin-bottom:20px">Each type's signature is the felt sense of living in alignment. <strong>Peace</strong> for Manifestors. <strong>Satisfaction</strong> for Generators. <strong>Success</strong> for Projectors. <strong>Satisfaction</strong> for Manifesting Generators. <strong>Surprise and delight</strong> for Reflectors.</p>
+    <p style="font-size:14px;line-height:1.85;color:var(--muted)">These are not distant goals — they are the natural byproduct of strategy and authority applied consistently, even imperfectly, in daily life.</p>
   </div>
 </div>
 
@@ -2764,6 +3024,38 @@ function resetHD() {
   document.getElementById('quiz').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
+</script>
+
+<!-- ── FLOATING PARTICLES & VISUAL ENHANCEMENTS ── -->
+<script>
+// Floating golden particles in the hero
+(function() {
+  const container = document.getElementById('floatingParticles');
+  if (!container) return;
+  const colors = ['rgba(154,111,46,0.6)','rgba(200,170,100,0.4)','rgba(250,230,160,0.35)','rgba(154,111,46,0.3)'];
+  for (let i = 0; i < 28; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'fp';
+    const size = Math.random() * 4 + 1.5;
+    dot.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${80 + Math.random()*40}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${6 + Math.random()*10}s;
+      animation-delay:${Math.random()*8}s;
+    `;
+    container.appendChild(dot);
+  }
+})();
+
+// Lazy-load images with a gentle fade-in
+document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+  img.style.transition = 'opacity 0.8s ease';
+  img.style.opacity = '0';
+  img.addEventListener('load', () => { img.style.opacity = '1'; });
+  if (img.complete) img.style.opacity = '1';
+});
 </script>
 </body>
 </html>
